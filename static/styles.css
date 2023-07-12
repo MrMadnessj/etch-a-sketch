@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -49,5 +50,35 @@ main{
     display: flex;
     justify-content: center;
     padding-top: 2rem;
+    gap: 2rem;
+}
 
+.row{
+    display: flex;                      /*row display*/
+    flex: 1;                            /*so it fills automatically for 1 ratio*/
+    border: 1px solid blue;
+}
+
+.column{
+    flex: 1;                            /*column display fills automatilly with ratio*/
+    border: 1px solid green;
+}
+
+.slider{
+    appearance: none;
+    cursor: grab;
+    transition: opacity .2s;
+    background: rgb(105, 62, 102);
+    border-radius: 2rem;
+    color: black;
+    height: 0.5rem;
+    width: 9rem;
+}
+
+.slider::-webkit-slider-thumb{
+    color: blue;
+}
+
+.slidercontainer{
+    text-align: center;
 }
