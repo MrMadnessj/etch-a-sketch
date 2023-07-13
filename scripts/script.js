@@ -3,15 +3,16 @@ const confirm = document.querySelector('.confirm-btn');
 let ui = 4;
 
 const btnCont = document.querySelector('.btn-container');
+btnCont.style.cssText = "display:flex; justify-content: center; align-items: center;";
 
 function createBox(n)
 {
     let s;
-    if(typeof n != 'number' || n<=0 || n>=101)
+    if(typeof n != 'number' || n<=0 || n>=101 || n == "")
         s = 10;
     else
         s = n;
-    console.log(n);
+    console.log("n "+typeof n);
     console.log(s);
 
     for(let i=0; i<s;i++)
@@ -45,11 +46,11 @@ function createBox(n)
     }
 }*/
 
-createBox();
+
 
 
 const sliderContainer = document.createElement('div');
-sliderContainer.style.cssText = "display: flex; gap:1rem; align-items:center;";
+sliderContainer.style.cssText = 'align-items:center;';
 sliderContainer.classList.add('slidercontainer');
 
 const slider = document.createElement('input');
@@ -60,13 +61,42 @@ slider.value = '10';
 slider.classList.add('slider');
 
 sliderContainer.appendChild(slider);
-btnCont.appendChild(sliderContainer);
 
 const sliderValue = document.createElement('p');
-sliderValue.innerText = '10';
+sliderValue.style.cssText = "";
+sliderValue.innerText = 10;
+
+createBox();
+let exists = true;
+let gridSize = 10;
+
+const slidervalCont = document.createElement('div');
+slidervalCont.style.cssText = "font-size: 1.5rem; color:rgb(105, 62, 102)";
+slidervalCont.appendChild(sliderValue);
+
+sliderContainer.appendChild(slidervalCont);
 
 
-sliderContainer.appendChild(sliderValue);
+
+btnCont.appendChild(sliderContainer);
+
+
+slider.addEventListener("input", sliderval);
+
+function sliderval(){
+    sliderValue.innerText = slider.value;
+    mainDiv.innerHTML = '';
+    createBox(parseInt(slider.value));
+}
+
+
+
+
+
+
+
+
+
 
 
 
