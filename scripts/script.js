@@ -173,6 +173,30 @@ eraDiv.appendChild(eraTxt);
 btnCont.appendChild(eraDiv);
 
 
+//color button
+const picBtn = document.createElement('input');  
+const picTxt = document.createElement('label');  
+
+const picDiv = document.createElement('div');
+picDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3rem";
+
+
+picBtn.type = "color";
+picBtn.classList.add('btn');
+picBtn.value = "pink";
+
+picTxt.innerHTML = "Select";
+picTxt.classList.add('btn');
+picTxt.classList.add('btn-r');
+
+
+picDiv.style.cssText = "display: flex; gap:0.2rem; justify-content:center;";
+
+picDiv.appendChild(picBtn);
+picDiv.appendChild(picTxt);
+
+btnCont.appendChild(picDiv);
+
 
 
 
@@ -256,8 +280,11 @@ function getColor(){
         })
     })
 }*/
-let brushColor = 'pink';
-blackBtn.addEventListener('click', () => {
+
+
+//enabling and disabliling buttons and changing colors
+let brushColor = 'pink';                                   //color
+blackBtn.addEventListener('click', () => {                 
         blackBtn.checked = true;
         rainBtn.checked = false;
         eraBtn.checked = false;
@@ -277,6 +304,17 @@ eraBtn.addEventListener('click', () => {
     eraBtn.checked = true;
     brushColor = 'pink';
 })
+
+picBtn.addEventListener('click', () => {
+    blackBtn.checked = false;
+    rainBtn.checked = false;
+    eraBtn.checked = false;
+    picTxt.addEventListener('click', () => {
+        brushColor = picBtn.value;
+    })
+})
+
+
 
 
 
