@@ -281,26 +281,50 @@ function getColor(){
     })
 }*/
 
+function randomColor()
+{
+    let rcolor = '';
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    rcolor = `rgb(${r},${g},${b})`;
+    return rcolor;
+}
+
+
+
 
 //enabling and disabliling buttons and changing colors
 let brushColor = 'pink';                                   //color
 blackBtn.addEventListener('click', () => {                 
-        blackBtn.checked = true;
-        rainBtn.checked = false;
-        eraBtn.checked = false;
-        brushColor = 'black';
+    
+    rainBtn.checked = false;
+    blackBtn.checked = true;
+        
+    eraBtn.checked = false;
+    brushColor = 'black';
 })
+
+
 
 rainBtn.addEventListener('click', () => {
     blackBtn.checked = false;
     rainBtn.checked = true;
-    eraBtn.checked = false;
-    brushColor = 'green';
+    eraBtn.checked = false; 
+    mainDiv.addEventListener('mouseover', () => {
+        if(rainBtn.checked)
+            brushColor = randomColor();
+    })
 })
 
+
+
+
+
 eraBtn.addEventListener('click', () => {
-    blackBtn.checked = false;
     rainBtn.checked = false;
+    blackBtn.checked = false;
+    
     eraBtn.checked = true;
     brushColor = 'pink';
 })
@@ -318,7 +342,7 @@ picBtn.addEventListener('click', () => {
 
 
 
-mainDiv.addEventListener("mousehover", draw(column));
+mainDiv.addEventListener("mouseover", draw(column));
 
 
 //gets each column in form of list using classname and colors then using color function
@@ -334,18 +358,17 @@ function draw(){
         box.addEventListener('mousedown', () => {               //selects each box
             isDrawing = true;                                   //sets it to true everytime mouseisdown 
             if(isDrawing)                                       // checks if true
-                box.style.backgroundColor = brushColor;   
-                console.log(+ "drawing");           // then'mousedown' allows to clik n paint
+                box.style.backgroundColor = brushColor;         // then'mousedown' allows to clik n paint
         });       
         box.addEventListener('mouseover', () => {               // is the mouse is still down then
             if(isDrawing)                                       // this is still true
-                box.style.backgroundColor = brushColor;
-                console.log(" drawing2");              // hence 'mouseover allows to click n paint' rather than hover n paint
+                box.style.backgroundColor = brushColor;         // hence 'mouseover allows to click n paint' rather than hover n paint
         });
     });
 
     document.addEventListener('mouseup', stopDrawing);          //very imp when mouseup isDrawing is set to false so 'mouseover' alone dosent cause the to paint in canvas 
 }
+
 
 
 
