@@ -89,23 +89,14 @@ main{
 }
 
 .btn{
-    display: inline-block;
-    border: none;
-    text-decoration: none;
-    padding: 0.7rem 1rem 0.7rem 1rem;
-    background-color: rgb(255, 26, 209);
-    border-radius: 15px;
     color: black;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-.btn:hover{
-    background-color: rgb(240, 4, 169);
-}
+
 
 .btn:focus{
     background-color: black;
     color: rgb(240, 4, 169);
-    cursor: not-allowed;
 }

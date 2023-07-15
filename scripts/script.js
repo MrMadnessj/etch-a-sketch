@@ -97,40 +97,190 @@ function sliderval(){
     draw();
 }
 
-const blackBtn = document.createElement('button');
-blackBtn.innerText = 'Black';
-blackBtn.classList.add('btn');
-btnCont.appendChild(blackBtn);
 
-const rainbow = document.createElement('button');
+
+
+
+
+
+
+
+
+//Black button
+const blackBtn = document.createElement('input');  
+const blackTxt = document.createElement('label');  
+
+const blackDiv = document.createElement('div');
+blackDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3rem";
+
+
+blackBtn.type = "radio";
+blackBtn.classList.add('btn');
+blackBtn.value = "black";
+
+blackTxt.innerText = "Black";
+blackTxt.classList.add('btn');
+
+
+blackDiv.appendChild(blackBtn);
+blackDiv.appendChild(blackTxt);
+
+btnCont.appendChild(blackDiv);
+
+
+
+//Raindbow button
+const rainBtn = document.createElement('input');  
+const rainTxt = document.createElement('label');  
+
+const rainDiv = document.createElement('div');
+rainDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3rem";
+
+
+rainBtn.type = "radio";
+rainBtn.classList.add('btn');
+rainBtn.value = "green";
+
+rainTxt.innerHTML = "Rainbow";
+rainTxt.classList.add('btn');
+
+rainDiv.appendChild(rainBtn);
+rainDiv.appendChild(rainTxt);
+
+btnCont.appendChild(rainDiv);
+
+
+
+
+//eraser button
+const eraBtn = document.createElement('input');  
+const eraTxt = document.createElement('label');  
+
+const eraDiv = document.createElement('div');
+eraDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3rem";
+
+
+eraBtn.type = "radio";
+eraBtn.classList.add('btn');
+eraBtn.value = "pink";
+
+eraTxt.innerHTML = "Eraser";
+eraTxt.classList.add('btn');
+
+eraDiv.appendChild(eraBtn);
+eraDiv.appendChild(eraTxt);
+
+btnCont.appendChild(eraDiv);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const rainbow = document.createElement('button');
 rainbow.innerText = "Rainbow";
 rainbow.classList.add('btn');
 btnCont.appendChild(rainbow);
 
+const eraser = document.createElement('button');
+eraser.innerText = "Eraser";
+eraser.classList.add('btn');
+btnCont.appendChild(eraser);*/
+
+
+
+
+/*function color()
+{
+    let color = 'pink';
+    blackBtn.addEventListener('select', function() {
+        color="black";
+        console.log('black');
+    });
+    
+    eraser.addEventListener('click', function() {
+        color="pink";
+        console.log('oinik');
+    });
+
+    rainbow.addEventListener('click', function() {
+        color="green";
+        console.log('green');
+    });
+
+    return color;
+} */
 
 
 
 
 
-
-
-
-
-
-
+let color = 'yellow';
+/*
 function getColor(){
-    let btns = document.querySelectorAll('btn');
-
+    let btns = document.querySelectorAll('input');
     btns.forEach(btn => {
-        btn.addEventListener('click', )
+        btn.addEventListener('click', function() {
+            for(const btn of btns){
+                if(btn.checked == true && btn.value == "black"){
+                    rainBtn.checked = false;
+                    eraBtn.checked = false;
+                }
+                if(btn.checked == true && btn.value == "green"){
+                    blackBtn.checked = false;
+                    eraBtn.checked = false;
+                }
+                if(btn.checked == true && btn.value == "pink"){
+                    blackBtn.checked = false;
+                    rainBtn.checked = false;
+                }
+            }
+        })
     })
-}
+}*/
+let brushColor = 'pink';
+blackBtn.addEventListener('click', () => {
+        blackBtn.checked = true;
+        rainBtn.checked = false;
+        eraBtn.checked = false;
+        brushColor = 'black';
+})
+
+rainBtn.addEventListener('click', () => {
+    blackBtn.checked = false;
+    rainBtn.checked = true;
+    eraBtn.checked = false;
+    brushColor = 'green';
+})
+
+eraBtn.addEventListener('click', () => {
+    blackBtn.checked = false;
+    rainBtn.checked = false;
+    eraBtn.checked = true;
+    brushColor = 'pink';
+})
 
 
 
 mainDiv.addEventListener("mousehover", draw(column));
-
-
 
 
 //gets each column in form of list using classname and colors then using color function
@@ -146,11 +296,13 @@ function draw(){
         box.addEventListener('mousedown', () => {               //selects each box
             isDrawing = true;                                   //sets it to true everytime mouseisdown 
             if(isDrawing)                                       // checks if true
-                box.style.backgroundColor = ;              // then'mousedown' allows to clik n paint
+                box.style.backgroundColor = brushColor;   
+                console.log(+ "drawing");           // then'mousedown' allows to clik n paint
         });       
         box.addEventListener('mouseover', () => {               // is the mouse is still down then
             if(isDrawing)                                       // this is still true
-                box.style.backgroundColor = ;              // hence 'mouseover allows to click n paint' rather than hover n paint
+                box.style.backgroundColor = brushColor;
+                console.log(" drawing2");              // hence 'mouseover allows to click n paint' rather than hover n paint
         });
     });
 
