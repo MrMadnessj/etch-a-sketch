@@ -298,7 +298,7 @@ function randomColor()
 
 
 //enabling and disabliling buttons and changing colors
-let brushColor = 'pink';                                   //color
+let brushColor = 'white';                                   //color
 blackBtn.addEventListener('click', () => {                 
     
     rainBtn.checked = false;
