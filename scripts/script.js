@@ -5,7 +5,7 @@ let ui = 4;
 
 const btnCont = document.querySelector('.btn-container'); //contains buttons
 
-btnCont.style.cssText = "display:flex; justify-content: center; align-items: center;";
+//btnCont.style.cssText = "display:flex; justify-content: center; align-items: center;";
 
 
 //creates boxes using flexboxs by making rows and the column inside them
@@ -67,7 +67,7 @@ slider.classList.add('slider');
 sliderContainer.appendChild(slider);
 
 const sliderValue = document.createElement('p');  //slider value
-sliderValue.style.cssText = "";
+sliderValue.style.cssText = "color: rgb(148, 2, 2); font-family: sans-serif; font-size: 2.2rem;";
 sliderValue.innerText = 10;
 
 createBox();
@@ -116,6 +116,7 @@ blackDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3
 
 blackBtn.type = "radio";
 blackBtn.classList.add('btn');
+blackBtn.style.cssText = "; accent-color: red;"
 blackBtn.value = "black";
 
 blackTxt.innerText = "Black";
@@ -139,6 +140,7 @@ rainDiv.style.cssText = "display: inline-flex; flex-direction: column; gap: 0.3r
 
 rainBtn.type = "radio";
 rainBtn.classList.add('btn');
+rainBtn.style.cssText = "; accent-color: red;"
 rainBtn.value = "green";
 
 rainTxt.innerHTML = "Rainbow";
@@ -166,6 +168,7 @@ eraBtn.value = "pink";
 
 eraTxt.innerHTML = "Eraser";
 eraTxt.classList.add('btn');
+eraBtn.style.cssText = "; accent-color: red;"
 
 eraDiv.appendChild(eraBtn);
 eraDiv.appendChild(eraTxt);
@@ -326,7 +329,7 @@ eraBtn.addEventListener('click', () => {
     blackBtn.checked = false;
     
     eraBtn.checked = true;
-    brushColor = 'pink';
+    brushColor = 'white';
 })
 
 picBtn.addEventListener('click', () => {
