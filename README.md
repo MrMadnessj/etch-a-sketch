@@ -1,2 +1,2 @@
 # etch-a-sketch
-live : [etch-a-sketch](index.html)
+live : [etch-a-sketch](www.google.com)
